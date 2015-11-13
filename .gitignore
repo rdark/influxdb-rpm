@@ -1,0 +1,15 @@
+# Default ignores for vim editor
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+# Default ignores for emacs editor
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+
