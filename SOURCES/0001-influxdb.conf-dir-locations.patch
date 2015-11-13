@@ -1,0 +1,56 @@
+--- /etc/opt/influxdb/influxdb.conf.orig	2015-11-13 10:07:18.429317846 +0000
++++ /etc/opt/influxdb/influxdb.conf	2015-11-13 10:18:17.638382566 +0000
+@@ -16,7 +16,7 @@
+ ###
+ 
+ [meta]
+-  dir = "/var/opt/influxdb/meta"
++  dir = "/var/lib/influxdb/meta"
+   hostname = "localhost"
+   bind-address = ":8088"
+   retention-autocreate = true
+@@ -35,7 +35,7 @@
+ ###
+ 
+ [data]
+-  dir = "/var/opt/influxdb/data"
++  dir = "/var/lib/influxdb/data"
+ 
+   # Controls the engine type for new shards.
+   # engine ="bz1"
+@@ -47,7 +47,7 @@
+   wal-partition-flush-delay = "2s" # The delay time between each WAL partition being flushed.
+ 
+   # These are the WAL settings for the storage engine >= 0.9.3
+-  wal-dir = "/var/opt/influxdb/wal"
++  wal-dir = "/var/lib/influxdb/wal"
+   wal-enable-logging = true
+ 
+   # When a series in the WAL in-memory cache reaches this size in bytes it is marked as ready to
+@@ -115,7 +115,7 @@
+   enabled = true
+   bind-address = ":8083"
+   https-enabled = false
+-  https-certificate = "/etc/ssl/influxdb.pem"
++  https-certificate = "/etc/pki/tls/private/influxdb.pem"
+ 
+ ###
+ ### [http]
+@@ -132,7 +132,7 @@
+   write-tracing = false
+   pprof-enabled = false
+   https-enabled = false
+-  https-certificate = "/etc/ssl/influxdb.pem"
++  https-certificate = "/etc/pki/tls/private/influxdb.pem"
+ 
+ ###
+ ### [[graphite]]
+@@ -258,7 +258,7 @@
+ 
+ [hinted-handoff]
+   enabled = true
+-  dir = "/var/opt/influxdb/hh"
++  dir = "/var/lib/influxdb/hh"
+   max-size = 1073741824
+   max-age = "168h"
+   retry-rate-limit = 0
